@@ -1,3 +1,32 @@
+----------------------------------------------------------------------------------
+-- Company/University: FPGA Lab Portfolio
+-- Engineer:           Erick Poppe
+-- 
+-- Create Date:        October 21, 2026
+-- Design Name:        clock_lab_top
+-- Module Name:        clock_lab_top - rtl
+-- Project Name:       Adaptive Video Clocking & Dynamic Diagnostics
+-- Target Devices:     Xilinx Spartan-6 XC6SLX45-3CSG324C (Digilent Atlys)
+-- Tool Versions:      Xilinx ISE WebPACK 14.7 (Linux/Ubuntu)
+-- 
+-- Description: 
+--     Internal clock synthesizer logic that cascades a dual fractional 
+--     DCM_CLKGEN infrastructure into a master PLL_BASE block. Uses dynamic 
+--     glitch-free clock multiplexing (BUFGMUX) controlled via SW7 to alternate 
+--     between 60.00 MHz and 80.00 MHz operation modes. 
+--
+--     Includes asynchronous-assert synchronous-release reset structures and 
+--     hardware input debouncers to shield the analog DCM loops from mechanical 
+--     switch bounce. Real-time diagnostics are mapped out to the onboard 
+--     LED panel via 26-bit prescaling clock dividers.
+-- 
+-- Dependencies: 
+--     unisim.vcomponents (IBUFG, BUFG, BUFGMUX, DCM_CLKGEN, PLL_BASE)
+-- 
+-- Revision:
+--     Revision 1.0 - Clean, debounced clock-multiplexed framework functional.
+-- 
+-------------------------------------------------------------------------
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
